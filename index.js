@@ -15,9 +15,9 @@ while (opcao != 4) {
     switch (parseInt(opcao)) {
         case 1:
             console.log(listaCervejas);
-            break
+            break;
         case 2:    
-            adcCerveja
+            adcCerveja;
             break;  
     }
     opcao = readLine.question(
