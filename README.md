@@ -26,7 +26,8 @@ Informe a opção:
 
 ## Utilização
 
-1 - Lista das cervejas
+######1 - Lista das cervejas
+
 Deve-se apresentar na tela uma listagem de cervejas da seguinte forma
 =================
 Nome: Turatti
@@ -41,6 +42,7 @@ Nota: 8
 =================
 
 2 - Adcionar uma cerveja
+
 Deve-se apresentar em sequencia as seguintes perguntas para adicionar a lista de cervejas
 Qual o nome?: 
 Qual o tipo?: 
