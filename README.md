@@ -29,17 +29,20 @@ Informe a opção:
 ###### 1 - Lista das cervejas
 
 Deve-se apresentar na tela uma listagem de cervejas da seguinte forma
-=================
+ 
+ ========
 Nome: Turatti
 Tipo: Stout
 Nota: 6
-=================
 
-=================
+ =========
+
+ =========
 Nome: Brewstone
 Tipo: Lager
 Nota: 8
-=================
+ 
+ =======
 
 2 - Adcionar uma cerveja
 
