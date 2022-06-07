@@ -31,6 +31,7 @@ Informe a opção:
 Deve-se apresentar na tela uma listagem de cervejas da seguinte forma
  
  ========
+
 Nome: Turatti
 Tipo: Stout
 Nota: 6
@@ -38,6 +39,7 @@ Nota: 6
  =========
 
  =========
+
 Nome: Brewstone
 Tipo: Lager
 Nota: 8
