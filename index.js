@@ -1,15 +1,17 @@
-let readLine = require('readline-sync');
+const readLine = require('readline-sync');
 let listaCervejas = require('./listaCervejas');
 let adcCerveja = require('./adcCerveja');
 
 // Desafio Cervejeiro
-let opcao = readLine.question(
-    `1 - Lista das cervejas\n 
-    2 - Adicionar uma cerveja\n
-    3 - Ver uma cerveja\n
-    4 - Sair\n
+function menu(){
+    console.log('1 - Lista das cervejas')
+    console.log('2 - Adicionar uma cerveja')
+    console.log('3 - Ver uma cerveja')
+    console.log('4 - Sair')
+    return readLine.question('Informe a opcao: ')
+}
 
-    Informe a opcao: `)
+let opcao = menu()
 
 while (opcao != 4) {
     switch (parseInt(opcao)) {
@@ -17,15 +19,9 @@ while (opcao != 4) {
             console.log(listaCervejas);
             break;
         case 2:    
-            adcCerveja;
+            adcCerveja();
             break;  
     }
-    opcao = readLine.question(
-    `1 - Lista das cervejas\n 
-    2 - Adicionar uma cerveja\n
-    3 - Ver uma cerveja\n
-    4 - Sair\n
-
-    Informe a opcao: `)
+    opcao = menu()
 }
 
