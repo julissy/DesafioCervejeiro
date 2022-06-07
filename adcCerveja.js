@@ -10,5 +10,5 @@ let adcCerveja =  function(){
     console.log(`${cerveja.nome} de tipo ${cerveja.tipo} 
 com nota ${cerveja.nota} foi adicionada com sucesso!`);  
 }
-console.log('qualquer coisa')
+
 module.exports = adcCerveja
