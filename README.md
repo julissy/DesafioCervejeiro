@@ -8,6 +8,7 @@ Instalar node e usar o npm
 
 ```bash
 npm install
+```
 
 Crie um programa de registro de cervejas que você já bebeu
 Uma cerveja consiste em
