@@ -26,7 +26,7 @@ Informe a opção:
 
 ## Utilização
 
-######1 - Lista das cervejas
+###### 1 - Lista das cervejas
 
 Deve-se apresentar na tela uma listagem de cervejas da seguinte forma
 =================
