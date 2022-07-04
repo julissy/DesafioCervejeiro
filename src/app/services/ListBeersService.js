@@ -2,16 +2,23 @@ const { response } = require('express');
 const BeerModel = require('../models/BeerModel');
 const { v4 } = require('uuid')
 
+let listBeers = new Array(new BeerModel(v4(), 'tiger', 'lager', '4'));
+
 const BeersService = {
     listBeerService: () => {
-        const beer1 = new BeerModel(
-            v4(),
-            'tiger',
-            'lager',
-            '4'
-        )
-        return [beer1]
+        return listBeers;
+    },
+    listBeerName: (beerName) => {
+        const beers = BeersService.listBeerService()
+        const beer = beers.find(item => item.name === (beerName))
+        return beer
+    },
+    listBeerType: (beerType) => {
+        const beers = BeersService.listBeerService()
+        const beer = beers.find(item => item.type == (beerType))
+        return beer
     }
+
 }
 
 module.exports = BeersService;

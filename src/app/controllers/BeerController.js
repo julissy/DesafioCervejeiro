@@ -1,6 +1,7 @@
 const { request, response } = require('express');
 const CreateBeerService = require('../services/CreateBeerService');
 const DeleteBeerService = require('../services/DeleteBeerService');
+const BeersService = require('../services/ListBeersService');
 const { listBeerService } = require('../services/ListBeersService');
 
 
@@ -24,8 +25,7 @@ const controller = {
             type,
             note
         );
-        const newListBeer = listBeerService()
-        newListBeer.push(beer)
+        
         return response.json(beer)
     },
     update: (request, response) => {
@@ -50,8 +50,21 @@ const controller = {
        const deleteBeer = DeleteBeerService.delete(id)
 
        response.send(deleteBeer)
-    }
+    },
+    listName: (request, response) => {
+        const { name } = request.query;
 
+        const nameBeer = BeersService.listBeerName(name)
+
+        return response.json(nameBeer)
+    },
+    listType: (request, response) => {
+        const { type } = request.query;
+
+        const typeBeer = BeersService.listBeerType(type)
+
+        return response.json(typeBeer)
+    }
 }
 
 module.exports = controller

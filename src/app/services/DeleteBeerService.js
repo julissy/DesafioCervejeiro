@@ -1,9 +1,9 @@
 const ListBeersService = require('./ListBeersService');
 
 const DeleteBeerService = {
-    delete: (name) => {
+    delete: (id) => {
         const beers = ListBeersService.listBeerService()
-        const beerIndex = beers.findIndex(item => item.name === (name))
+        const beerIndex = beers.findIndex(item => item.id === (id))
         
         if(beerIndex === -1) {
             return { erro: "cerveja não encontrada"}

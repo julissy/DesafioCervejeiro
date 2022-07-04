@@ -1,6 +1,6 @@
 const BeerModel = require('../models/BeerModel');
 const { v4 } = require('uuid');
-const ListBeersService = require('./ListBeersService');
+const BeersService = require('./ListBeersService');
 
 const CreateBeerService = {
     createBeer: (
@@ -14,7 +14,7 @@ const CreateBeerService = {
             type,
             note
         );
-        const beers = ListBeersService.listBeerService()
+        const beers = BeersService.listBeerService()
         beers.push(newBeer)
         return newBeer;
     }

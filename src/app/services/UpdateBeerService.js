@@ -1,4 +1,4 @@
-/* const ListBeersService = require('./ListBeersService');
+const ListBeersService = require('./ListBeersService');
 
 const UpdateBeerService = {
     update: (
@@ -23,4 +23,4 @@ const UpdateBeerService = {
     }
 }
 
-module.exports = UpdateBeerService */
+module.exports = UpdateBeerService
