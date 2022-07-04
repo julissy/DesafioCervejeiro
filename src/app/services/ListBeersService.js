@@ -10,12 +10,12 @@ const BeersService = {
     },
     listBeerName: (beerName) => {
         const beers = BeersService.listBeerService()
-        const beer = beers.find(item => item.name === (beerName))
+        const beer = beers.filter(item => item.name === (beerName))
         return beer
     },
     listBeerType: (beerType) => {
         const beers = BeersService.listBeerService()
-        const beer = beers.find(item => item.type == (beerType))
+        const beer = beers.filter(item => item.type == (beerType))
         return beer
     }
 
