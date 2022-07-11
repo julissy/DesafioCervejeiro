@@ -8,15 +8,36 @@ const CreateBeerService = {
         type,
         note
     ) => {
+
+        if (note < 1 || note > 5) {
+            return {
+                sucess: false,
+                message: "Digite uma nota entre 1 e 5"
+            }
+        }
+
         const newBeer = new BeerModel(
             v4(),
-            name,
-            type,
+            name.toUpperCase(),
+            type.toUpperCase(),
             note
         );
+
         const beers = BeersService.listBeerService()
-        beers.push(newBeer)
-        return newBeer;
+        const beerFilter = beers.filter(item => item.name === (name))
+        
+        if (beerFilter === -1) {
+            beers.push(newBeer)
+            return {
+                sucess: true,
+                message: newBeer
+            }
+        }
+        console.log(beerFilter)
+        return {
+            sucess: false,
+            message: "Essa cerveja já está cadastrada"
+        }
     }
 }
 
