@@ -74,8 +74,8 @@ const controller = {
 
         const updateBeer = UpdateBeerService.update(
             id,
-            name,
-            type,
+            name.toUpperCase(),
+            type.toUpperCase(),
             note
         )
         if (!updateBeer.sucess) {
@@ -106,12 +106,14 @@ const controller = {
         return response.json(typeBeer)
     },
     searchBeers: (request, response) => {
-        const { name } = request.query;
-        const { type } = request.query;
+        const { name, type } = request.query;
 
-        const searchBeer = BeersService.searchBeers()
+        const searchBeer = BeersService.searchBeers(name || type)
+        if (!searchBeer.sucess) {
+            return response.status(400).json({ message: "essa cerveja não está cadastrada" })
+        }
 
-        return response.json(searchBeer)
+        return response.status(200).json(searchBeer.message)
     }
 }
 

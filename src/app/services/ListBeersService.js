@@ -20,14 +20,12 @@ const BeersService = {
     },
     searchBeers: (beerNameOrType) => {
         const beers = BeersService.listBeerService()
-
-        if (beerNameOrType === name) {
-            const beer1 = beers.filter(item => item.name === (beerNameOrType))
-        } else {
-            const beer1 = beers.filter(item => item.type === (beerNameOrType))
+        const beerFilter = beers.find(
+            item => item.name == (beerNameOrType.name) || item.type == (beerNameOrType.type))
+        return {
+            sucess: true,
+            message: beerFilter
         }
-
-        return beer1
     }
 }
 

@@ -24,16 +24,15 @@ const CreateBeerService = {
         );
 
         const beers = BeersService.listBeerService()
-        const beerFilter = beers.filter(item => item.name === (name))
-        
-        if (beerFilter === -1) {
+        const beerFilter = beers.find(
+            item => item.name === (newBeer.name) && item.type === (newBeer.type))
+        if (beerFilter === undefined) {
             beers.push(newBeer)
             return {
                 sucess: true,
                 message: newBeer
             }
         }
-        console.log(beerFilter)
         return {
             sucess: false,
             message: "Essa cerveja já está cadastrada"
