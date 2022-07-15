@@ -8,25 +8,38 @@ const BeersService = {
     listBeerService: () => {
         return listBeers;
     },
-    listBeerName: (beerName) => {
-        const beers = BeersService.listBeerService()
-        const beer = beers.filter(item => item.name == (beerName))
-        return beer
-    },
-    listBeerType: (beerType) => {
-        const beers = BeersService.listBeerService()
-        const beer = beers.filter(item => item.type == (beerType))
-        return beer
-    },
     searchBeers: (beerNameOrType) => {
         const beers = BeersService.listBeerService()
-        const beerFilter = beers.find(
-            item => item.name == (beerNameOrType.name) || item.type == (beerNameOrType.type))
-        return {
-            sucess: true,
-            message: beerFilter
+        let listResult = []
+        if (beerNameOrType.name != undefined && beerNameOrType.type != undefined) {
+            listResult = beers.filter(item => item.name == beerNameOrType.name.toUpperCase()
+                && item.type == beerNameOrType.type.toUpperCase())
+            return returnList(listResult)
+        } else if (beerNameOrType.type != undefined) {
+            listResult = beers.filter(item => item.type == (beerNameOrType.type.toUpperCase()))
+            return returnList(listResult)
+        } else if (beerNameOrType.name != undefined) {
+            listResult = beers.filter(item => item.name == (beerNameOrType.name.toUpperCase()))
+            return returnList(listResult)
+        } else {
+            return falseReturn()
         }
     }
 }
+function falseReturn() {
+    return {
+        sucess: false,
+        message: "beer not found"
+    }
+}
 
-module.exports = BeersService;
+function returnList(myList) {
+    if (myList.length > 0) {
+        return {
+            sucess: true,
+            message: myList
+        }
+    }
+    return falseReturn()
+}
+module.exports = BeersService

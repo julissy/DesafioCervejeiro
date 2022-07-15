@@ -81,40 +81,17 @@ const controller = {
         if (!updateBeer.sucess) {
             return response.status(400).json(updateBeer.message)
         }
-
         return response.status(200).json(updateBeer.message)
     },
     delete: (request, response) => {
         const { id } = request.params
-
         const deleteBeer = DeleteBeerService.delete(id)
 
         response.send(deleteBeer)
     },
-    listName: (request, response) => {
-        const { name } = request.query;
-
-        const nameBeer = BeersService.listBeerName(name)
-
-        return response.json(nameBeer)
-    },
-    listType: (request, response) => {
-        const { type } = request.query;
-
-        const typeBeer = BeersService.listBeerType(type)
-
-        return response.json(typeBeer)
-    },
     searchBeers: (request, response) => {
-        const { name, type } = request.query;
-
-        const searchBeer = BeersService.searchBeers(name || type)
-        if (!searchBeer.sucess) {
-            return response.status(400).json({ message: "essa cerveja não está cadastrada" })
-        }
-
-        return response.status(200).json(searchBeer.message)
+        const valueReturn = BeersService.searchBeers(request.query)
+        return response.json(valueReturn)
     }
 }
-
 module.exports = controller
